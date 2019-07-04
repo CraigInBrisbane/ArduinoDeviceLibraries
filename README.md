@@ -23,7 +23,18 @@ Update the state of the buzzer. Usually called from within the Loop function.
 
 ```FadingLed(int LedPin, int FadePeriod, int DelayedStart, bool Debug)```
 
-Constructor, Accepts a pin number to which the buzzer is connected, the time in milliseconds to go from bright to dim, a time in milliseconds to delay the start, and a flag to indicate if logging is needed.
+Constructor, Accepts a pin number to which the LED is connected, the time in milliseconds to go from bright to dim, a time in milliseconds to delay the start, and a flag to indicate if logging is needed.
+
+
+```Update()```
+
+Update the state of the LED. Usually called from within the Loop function.
+
+## FlashingLED
+
+```FlashingLed(int LedPin, long On, long Off)```
+
+Constructor, Accepts a pin number to which the LED is connected, how long the LED should stay on for, and how long the LED should stay off for..
 
 
 ```Update()```
