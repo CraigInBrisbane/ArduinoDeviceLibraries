@@ -2,15 +2,19 @@
  * A class that manages a fading LED. This needs to be on PWM pin.
  */
 class FadingLed {
+
+private:
   int             delayedStart = 0;               // Period to wait before starting. 
   int             ledPin = -1;                    // The pin to control
   long            fadePeriod = 0;                 // The time to do a full light and dim cycle. 
   unsigned long   previousMillis = 0;             // The previous millis value.
   bool            debug = false;                  // Should we output stuff?
   float           fadeChangeGap = 0;              // Calculated gap between brightness changes.
-  
+
 public:  
-  FadingLed(int LedPin, int FadePeriod, int DelayedStart, bool Debug) {
+  FadingLed() 
+
+  void Init(int LedPin, int FadePeriod, int DelayedStart, bool Debug) {
     pinMode(ledPin, OUTPUT);
     ledPin = LedPin;
     fadePeriod = FadePeriod;
@@ -18,6 +22,7 @@ public:
     previousMillis = 0;  
     debug = Debug;    
   }
+
 
   void Update(bool isOn) {
       unsigned long currentMillis = millis();
