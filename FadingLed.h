@@ -12,7 +12,7 @@ private:
   float           fadeChangeGap = 0;              // Calculated gap between brightness changes.
 
 public:  
-  FadingLed() 
+  FadingLed(); 
 
   void Init(int LedPin, int FadePeriod, int DelayedStart, bool Debug) {
     pinMode(ledPin, OUTPUT);
