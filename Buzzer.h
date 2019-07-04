@@ -1,9 +1,9 @@
 class Buzzer {
-  int pin = 0;
+  int           pin = 0;
   unsigned long lastMillis = 0;
   unsigned long toneTime = 0;
-  int pitch = 0;
-  bool isBuzzing = false;
+  int           pitch = 0;
+  bool          isBuzzing = false;
 
   public:
   Buzzer(int Pin){
@@ -11,11 +11,11 @@ class Buzzer {
     pinMode(pin, OUTPUT);
   }
 
-  void Beep(int ToneTime) {
+  void Beep(int ToneTime, int Pitch) {
     Serial.println("Starting buzzer...");
     isBuzzing = true;
     toneTime = ToneTime;
-    tone(pin, 2000);
+    tone(pin, Pitch);
     lastMillis = millis();
   }
 
