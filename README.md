@@ -18,3 +18,14 @@ The amount of time the tone should sound for. Usually called when you want the b
 ```Update()```
 
 Update the state of the buzzer. Usually called from within the Loop function.
+
+## FadingLED
+
+```FadingLed(int LedPin, int FadePeriod, int DelayedStart, bool Debug)```
+
+Constructor, Accepts a pin number to which the buzzer is connected, the time in milliseconds to go from bright to dim, a time in milliseconds to delay the start, and a flag to indicate if logging is needed.
+
+
+```Update()```
+
+Update the state of the LED. Usually called from within the Loop function.
