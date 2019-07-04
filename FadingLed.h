@@ -14,7 +14,7 @@ private:
 public:  
   FadingLed(); 
 
-  void Init(int LedPin, int FadePeriod, int DelayedStart, bool Debug) {
+  void Setup(int LedPin, int FadePeriod, int DelayedStart, bool Debug) {
     pinMode(ledPin, OUTPUT);
     ledPin = LedPin;
     fadePeriod = FadePeriod;

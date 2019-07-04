@@ -8,7 +8,7 @@ class Buzzer {
   public:
     Buzzer();
 
-    Init(int Pin){
+    void Setup(int Pin){
       pin = Pin;
       pinMode(pin, OUTPUT);
     }
