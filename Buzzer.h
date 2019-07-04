@@ -6,28 +6,30 @@ class Buzzer {
   bool          isBuzzing = false;
 
   public:
-  Buzzer(int Pin){
-    pin = Pin;
-    pinMode(pin, OUTPUT);
-  }
+    Buzzer();
 
-  void Beep(int ToneTime, int Pitch) {
-    Serial.println("Starting buzzer...");
-    isBuzzing = true;
-    toneTime = ToneTime;
-    tone(pin, Pitch);
-    lastMillis = millis();
-  }
-
-  void Update() {
-    unsigned long currentMillis = millis();
-    
-    if(isBuzzing && currentMillis - lastMillis > toneTime) {
-      Serial.println("Stopping buzzer");
-      noTone(pin);
-      isBuzzing = false;
+    Init(int Pin){
+      pin = Pin;
+      pinMode(pin, OUTPUT);
     }
-  }
+
+    void Beep(int ToneTime, int Pitch) {
+      Serial.println("Starting buzzer...");
+      isBuzzing = true;
+      toneTime = ToneTime;
+      tone(pin, Pitch);
+      lastMillis = millis();
+    }
+
+    void Update() {
+      unsigned long currentMillis = millis();
+      
+      if(isBuzzing && currentMillis - lastMillis > toneTime) {
+        Serial.println("Stopping buzzer");
+        noTone(pin);
+        isBuzzing = false;
+      }
+    }
 
   
 };
