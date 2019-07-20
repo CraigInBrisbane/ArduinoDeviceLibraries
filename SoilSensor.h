@@ -14,7 +14,7 @@
         }
     
         // Initialise the settings.
-        Setup(int SensorPin, int PowerPin, int PollInterval) {
+        Init(int SensorPin, int PowerPin, int PollInterval) {
             Sensor_PIN =    SensorPin;
             Power_PIN =     PowerPin;
             Poll_Interval = PollInterval;
@@ -25,7 +25,7 @@
 
             // Are we ready to send updated?
             if(Sensor_PIN == 0)
-                return;
+                return -1;
 
             unsigned long currentMillis = millis();
 
