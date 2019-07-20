@@ -35,9 +35,6 @@
 
             // Are we ready to send updated?
             if(Sensor_PIN == 0) {
-                if(DebugMode==true) {
-                    Serial.println("Update called, but Init has not been called yet. Returning -1");
-                }
                 return -1;
             }
 
@@ -69,12 +66,6 @@
                 return readValue;
             }
 
-            if(DebugMode == true) {
-                Serial.print("Update triggered, but poll value is ");
-                Serial.print(Poll_Interval);
-                Serial.print(", but difference is ");
-                Serial.println(currentMillis - previousMillis);
-                return -1;
-            }
+            return -1;
         }
 };
