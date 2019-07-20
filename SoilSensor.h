@@ -43,7 +43,10 @@
             // Check if we're due a poll.
             if(currentMillis - previousMillis > Poll_Interval) {
                 if(DebugMode==true) {
-                    Serial.println("Will read...");
+                    Serial.print("Will read... Sensor Pin: ");
+                    Serial.print(Sensor_PIN);
+                    Serial.print(", Power Pin: ");
+                    Serial.println(Power_PIN);
                 }
 
                 // Switch on the sensor.
