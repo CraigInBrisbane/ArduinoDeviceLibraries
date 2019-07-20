@@ -14,7 +14,7 @@
         }
     
         // Initialise the settings.
-        Init(int SensorPin, int PowerPin, int PollInterval) {
+        void Init(int SensorPin, int PowerPin, int PollInterval) {
             Sensor_PIN =    SensorPin;
             Power_PIN =     PowerPin;
             Poll_Interval = PollInterval;
