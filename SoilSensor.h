@@ -2,6 +2,7 @@
     private:
         int Sensor_PIN                  = 0;
         int Power_PIN                   = 0;
+        int LED_Pin                     = 0;
         int Poll_Interval               = 0;
         int readValue                   = 0;
         unsigned long previousMillis    = 0;
@@ -15,10 +16,11 @@
         }
     
         // Initialise the settings.
-        void Init(int SensorPin, int PowerPin, int PollInterval) {
+        void Init(int SensorPin, int PowerPin, int LEDPin, int PollInterval) {
             Sensor_PIN =    SensorPin;
             Power_PIN =     PowerPin;
             Poll_Interval = PollInterval;
+            LED_Pin =       LED_Pin;
         }
 
         void SetDebugMode(bool mode) {
@@ -49,6 +51,11 @@
                     Serial.println(Power_PIN);
                 }
 
+                // We need to power down the LED, as it's draws power, and we need as much as possible for the sensor.
+                int initialLEDValue = digitalRead(LED_Pin);                
+                if(initialLEDValue == HIGH)
+                    digitalWrite(LED_Pin, LOW);
+
                 // Switch on the sensor.
                 digitalWrite(Power_PIN, HIGH);
                 // Let the sensor get ready for 20ms.
@@ -64,6 +71,10 @@
                     Serial.print("Read value ");
                     Serial.println(readValue);
                 }
+
+                // Restore the LED state.
+                if(initialLEDValue == HIGH)
+                    digitalWrite(LED_Pin, initialLEDValue);
 
                 // Return the last read value.
                 return readValue;
