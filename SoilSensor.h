@@ -67,7 +67,7 @@
                 // Switch off the sensor to save power. 
 
                 if(DebugMode)
-                    Serial.println("Powering down the sensor...")
+                    Serial.println("Powering down the sensor...");
                 digitalWrite(Power_PIN, LOW);
                 // Record the last time a value was read.
                 previousMillis = currentMillis;
