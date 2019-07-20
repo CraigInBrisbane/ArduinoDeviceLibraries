@@ -61,7 +61,7 @@
                 // Switch on the sensor.
                 digitalWrite(Power_PIN, HIGH);
                 // Let the sensor get ready for 20ms.
-                delay(100);
+                delay(1000);
                 // read the value
                 readValue = analogRead(Sensor_PIN);
                 // Switch off the sensor to save power. 
