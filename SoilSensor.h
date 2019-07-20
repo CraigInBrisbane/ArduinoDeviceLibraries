@@ -5,7 +5,7 @@
         int Poll_Interval               = 0;
         int readValue                   = 0;
         unsigned long previousMillis    = 0;
-        bool debugMode                  = false;
+        bool DebugMode                  = false;
 
     public:
 
@@ -21,8 +21,8 @@
             Poll_Interval = PollInterval;
         }
 
-        void SetDebugMode(bool DebugMode) {
-            debugMode = DebugMode;
+        void SetDebugMode(bool mode) {
+            DebugMode = mode;
             if(DebugMode==true) {
                 Serial.begin(9600);
                 Serial.println("Debug mode enabled on SoilSensor...");
