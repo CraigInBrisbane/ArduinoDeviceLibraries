@@ -44,7 +44,7 @@
 
             // Check if we're due a poll.
             if(currentMillis - previousMillis > Poll_Interval) {
-                if(DebugMode==true) {
+                if(DebugMode) {
                     Serial.print("Will read... Sensor Pin: ");
                     Serial.print(Sensor_PIN);
                     Serial.print(", Power Pin: ");
@@ -56,6 +56,8 @@
                 if(initialLEDValue == HIGH)
                     digitalWrite(LED_Pin, LOW);
 
+                if(DebugMode)
+                    Serial.println("Powering up the sensor...");
                 // Switch on the sensor.
                 digitalWrite(Power_PIN, HIGH);
                 // Let the sensor get ready for 20ms.
@@ -63,11 +65,14 @@
                 // read the value
                 readValue = analogRead(Sensor_PIN);
                 // Switch off the sensor to save power. 
+
+                if(DebugMode)
+                    Serial.println("Powering down the sensor...")
                 digitalWrite(Power_PIN, LOW);
                 // Record the last time a value was read.
                 previousMillis = currentMillis;
 
-                if(DebugMode==true) {
+                if(DebugMode) {
                     Serial.print("Read value ");
                     Serial.println(readValue);
                 }
