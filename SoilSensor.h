@@ -74,6 +74,7 @@
                 Serial.print(Poll_Interval);
                 Serial.print(", but difference is ");
                 Serial.println(currentMillis - previousMillis);
+                return -1;
             }
         }
 };
