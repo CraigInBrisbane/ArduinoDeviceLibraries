@@ -16,14 +16,16 @@
     
         // Initialise the settings.
         void Init(int SensorPin, int PowerPin, int PollInterval) {
+            // Setup the pins.
             Sensor_PIN =    SensorPin;
             Power_PIN =     PowerPin;
             Poll_Interval = PollInterval;
-
-            pinMode(Sensor_PIN, INPUT;
+            // Set the pin modes.
+            pinMode(Sensor_PIN, INPUT);
             pinMode(Power_PIN, OUTPUT);
         }
 
+        // Set the debug mode.
         void SetDebugMode(bool mode) {
             DebugMode = mode;
             if(DebugMode==true) {
@@ -34,7 +36,6 @@
 
         // Method called to see if we have any updated from the sensor, based on the Poll Interval time.
         int Update() {
-
 
             // Are we ready to send updated?
             if(Sensor_PIN == 0) {
