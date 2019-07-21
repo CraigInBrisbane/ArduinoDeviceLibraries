@@ -7,6 +7,7 @@ class FlashingLed {
   long  offTime;
   int   state;
   unsigned long previousMillis;
+  bool isOn = false;
 
   public:
   FlashingLed() {
@@ -21,8 +22,20 @@ class FlashingLed {
     previousMillis = 0;
   }
 
+  void On() {
+    isOn = true;
+  }
+
+  void Off() {
+    isOn = false;
+  }
+
 
   void Update() {
+
+    if(isOn == false)
+      return;
+
     unsigned long currentMillis = millis();
     
     if((state == HIGH) and (currentMillis - previousMillis >= onTime)) {
